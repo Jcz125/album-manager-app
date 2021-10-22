@@ -12,6 +12,6 @@ public class PanneauControle extends GridPane {
 
     @Override
     public void reagir() {
-        
+
     }
 }
