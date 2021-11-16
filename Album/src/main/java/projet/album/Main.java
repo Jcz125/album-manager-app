@@ -2,11 +2,12 @@ package projet.album;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.AmbientLight;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuBar;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
+import projet.album.view.PanneauControle;
 import projet.album.view.VueAlbum;
 import projet.album.view.VuePhotos;
 
@@ -25,7 +26,7 @@ public class Main extends Application {
 
         BorderPane root = new BorderPane();
         root.setTop(new MenuBar());
-        root.setBottom(new TilePane());
+        root.setBottom(new PanneauControle());
         root.setRight(new VuePhotos());
         root.setCenter(new VueAlbum());
 
