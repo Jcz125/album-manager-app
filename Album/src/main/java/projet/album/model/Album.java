@@ -3,15 +3,21 @@ package projet.album.model;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 public class Album {
 
     private String name;
     private int size;
     private int currentPages;
+    private ArrayList<Photo> photos;
 
     public Album (String name) {
         this.name = name;
-        this.size = 0;
+        this.size = 2;
+        this.currentPages = 0;
+        this.photos = new ArrayList<>();
     }
 
     public String getName() {
@@ -24,6 +30,10 @@ public class Album {
 
     public int getCurrentPages() {
         return this.currentPages;
+    }
+
+    public ArrayList<Photo> getPhotos() {
+        return this.photos;
     }
 
     public void previous() {
@@ -40,5 +50,9 @@ public class Album {
 
     public void retirer() {
         this.size--;
+    }
+
+    public String findPhotoTitle(int currentPages) {
+        return this.getPhotos().get(currentPages).title;
     }
 }

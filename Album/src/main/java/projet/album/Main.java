@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.MenuBar;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import projet.album.model.Album;
 import projet.album.view.PanneauControle;
 import projet.album.view.VueAlbum;
 import projet.album.view.VuePhotos;
@@ -19,16 +20,21 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("background.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+//        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("background.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         primaryStage.setTitle("Album");
-        primaryStage.setScene(scene);
 
         BorderPane root = new BorderPane();
+        Scene scene = new Scene(root, 1400, 800);
+        primaryStage.setScene(scene);
+
+        Album album = new Album("Shinchan");
+
+
         root.setTop(new MenuBar());
-        root.setBottom(new PanneauControle());
+        root.setBottom(new PanneauControle(album));
         root.setRight(new VuePhotos());
-        root.setCenter(new VueAlbum());
+        root.setCenter(new VueAlbum(album));
 
         primaryStage.show();
     }

@@ -19,8 +19,13 @@ public class PanneauControle extends TilePane implements Observateur {
     public PanneauControle(Album album) {
         this.album = album;
         this.title = new Label("Album : " + album.getName());
-        this.pages.setText("Pages : " + album.getCurrentPages() + "-" + album.getCurrentPages()+1
-                + " sur " + album.getSize());
+        this.pages = new Label("Pages : " + album.getCurrentPages() + "-"
+                + album.getCurrentPages()+1 + " sur " + album.getSize());
+        this.b_prev = new Button("<-");
+        this.b_next = new Button("->");
+        this.b_add = new Button("+");
+        this.b_remove = new Button("-");
+
         this.b_prev.setOnAction(event->album.previous());
         this.b_next.setOnAction(event-> album.next());
         this.b_add.setOnAction(event->album.ajouter());
