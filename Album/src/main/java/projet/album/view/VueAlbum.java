@@ -67,11 +67,6 @@ public class VueAlbum extends GridPane implements Observateur {
 
         this.num1.setText("" + photo1.getTitle());
         this.num2.setText("" + photo2.getTitle());
-
-        this.add(num1, 0, 0);
-        this.add(num2, 1, 0);
-        this.add(new ImageView(new Image(photo1.getPath())), 0, 2);
-        this.add(new ImageView(new Image(photo2.getPath())), 1, 2);
     }
 
 
