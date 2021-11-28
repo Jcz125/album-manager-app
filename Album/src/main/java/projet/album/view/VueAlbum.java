@@ -17,6 +17,7 @@ public class VueAlbum extends GridPane implements Observateur {
     private Button b1, b2;
     private Photo photo1, photo2;
     private Album album;
+    private ImageView image1View, image2View;
 
     public VueAlbum(Album album) {
         this.album = album;
@@ -31,8 +32,8 @@ public class VueAlbum extends GridPane implements Observateur {
         Image image1 = new Image(photo1.getPath()); // "projet/album/shinchan_fond_boggle.jpg");
         Image image2 = new Image(photo2.getPath()); //"projet/album/蜡笔小新 yeah.jpg");
 
-        ImageView image1View = new ImageView(image1);
-        ImageView image2View = new ImageView(image2);
+        image1View = new ImageView(image1);
+        image2View = new ImageView(image2);
         image1View.setFitHeight(300);
         image1View.setFitWidth(300);
         image1View.preserveRatioProperty();
@@ -67,6 +68,9 @@ public class VueAlbum extends GridPane implements Observateur {
 
         this.num1.setText("" + photo1.getTitle());
         this.num2.setText("" + photo2.getTitle());
+
+        this.image1View.setImage(new Image(photo1.getPath()));
+        this.image2View.setImage(new Image(photo2.getPath()));
     }
 
 
