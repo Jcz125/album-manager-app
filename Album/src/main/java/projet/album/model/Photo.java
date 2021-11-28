@@ -4,14 +4,14 @@ import java.net.URL;
 
 public class Photo {
     protected String title;
-    protected URL path;
+    protected String path;
 
-    public Photo(String name, URL path) {
+    public Photo(String name, String path) {
         this.title = name;
         this.path = path;
     }
 
-    public URL getPath() {
+    public String getPath() {
         return this.path;
     }
 
@@ -23,7 +23,7 @@ public class Photo {
         this.title = newTitle;
     }
 
-    public void setPath(URL newPath) {
+    public void setPath(String newPath) {
         this.path = newPath;
     }
 }

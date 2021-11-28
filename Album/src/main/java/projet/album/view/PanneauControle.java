@@ -29,7 +29,10 @@ public class PanneauControle extends TilePane implements Observateur {
         this.b_prev.setOnAction(event->album.previous());
         this.b_next.setOnAction(event-> album.next());
         this.b_add.setOnAction(event->album.ajouter());
-        this.b_remove.setOnAction(event->album.retirer());
+        this.b_remove.setOnAction(event->album.retirer(album.getCurrentPages()));
+
+        this.getChildren().addAll(b_prev, b_next, b_add, b_remove);
+        this.album.ajoutObservateur(this);
     }
 
     @Override

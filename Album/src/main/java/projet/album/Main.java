@@ -8,6 +8,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import projet.album.model.Album;
+import projet.album.model.Photo;
 import projet.album.view.PanneauControle;
 import projet.album.view.VueAlbum;
 import projet.album.view.VuePhotos;
@@ -29,7 +30,8 @@ public class Main extends Application {
         primaryStage.setScene(scene);
 
         Album album = new Album("Shinchan");
-
+        album.getPhotos().add(new Photo("Shinchan1", "projet/album/shinchan_fond_boggle.jpg"));
+        album.getPhotos().add(new Photo("Shinchan1", "projet/album/shinchan_fond_boggle.jpg"));
 
         root.setTop(new MenuBar());
         root.setBottom(new PanneauControle(album));
