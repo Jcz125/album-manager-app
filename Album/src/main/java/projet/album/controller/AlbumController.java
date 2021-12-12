@@ -1,4 +1,4 @@
-package projet.album.view;
+package projet.album.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -6,21 +6,18 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import projet.album.controller.Observateur;
 import projet.album.model.Album;
 import projet.album.model.Photo;
 
-import java.net.URL;
+public class AlbumController extends GridPane implements Observateur {
 
-public class VueAlbum extends GridPane implements Observateur {
-    @FXML
     public Label num1, num2;
     public Button b1, b2;
     public Photo photo1, photo2;
     public Album album;
     public ImageView image1View, image2View;
 
-    public VueAlbum(Album album) {
+    public AlbumController(Album album) {
         this.album = album;
         this.album.ajoutObservateur(this);
 

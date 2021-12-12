@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="projet.album.Main">
+<VBox AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+    <children>
+        <MenuBar VBox.vgrow="NEVER">
+            <menus>
+                <Menu fx:id="menu_album" mnemonicParsing="false" text="Album">
+                    <items>
+                        <MenuItem fx:id="new_album" mnemonicParsing="false" text="Nouveau album" />
+                        <MenuItem fx:id="save_album" mnemonicParsing="false" text="Sauvegarder l'album" />
+                        <MenuItem fx:id="load_album" mnemonicParsing="false" text="Charger un l'album" />
+                        <MenuItem fx:id="quit" mnemonicParsing="false" text="Quitter" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Outils">
+                    <items>
+                        <MenuItem fx:id="rename_album" mnemonicParsing="false" text="Renommer l'album" />
+                        <MenuItem fx:id="set_directory" mnemonicParsing="false" text="Définir un répertoire" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <SplitPane dividerPositions="0.65" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+            <items>
+                <AnchorPane>
+                    <children>
+                        <SplitPane dividerPositions="0.70" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <items>
+                                <AnchorPane minHeight="0.0" minWidth="0.0">
+                                    <children>
+                                        <fx:include fx:id="i_album" source="InterfaceAlbum.fxml"/>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0">
+                                    <children>
+                                        <fx:include fx:id="i_panneau" source="InterfacePanneauControle.fxml"/>
+                                    </children>
+                                </AnchorPane>
+                            </items>
+                        </SplitPane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane>
+                    <children>
+                        <fx:include fx:id="i_photos" source="InterfacePhotos.fxml"/>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</VBox>

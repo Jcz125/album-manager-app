@@ -9,11 +9,11 @@ import java.util.Map;
 
 public class Album {
 
-    private String name;
-    private int size;
-    private int currentPages;
-    private ArrayList<Photo> photos;
-    private ArrayList<Observateur> obs = new ArrayList<>();
+    public String name;
+    public int size;
+    public int currentPages;
+    public ArrayList<Photo> photos;
+    public ArrayList<Observateur> obs = new ArrayList<>();
 
     public Album (String name) {
         this.name = name;

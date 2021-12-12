@@ -1,23 +1,18 @@
-package projet.album.view;
+package projet.album.controller;
 
-import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.TilePane;
-import javafx.stage.Stage;
-import projet.album.controller.Observateur;
 import projet.album.model.Album;
+import projet.album.model.Photo;
 
-public class PanneauControle extends TilePane implements Observateur {
-    @FXML
+public class PanneauController extends TilePane implements Observateur {
     public Album album;
     public Button b_prev, b_next, b_add, b_remove;
     public Label title, pages;
 
-    public PanneauControle(Album album) {
+    public PanneauController(Album album) {
         this.album = album;
         this.title = new Label("Album : " + album.getName());
         this.pages = new Label("Pages : " + album.getCurrentPages() + "-"
@@ -34,6 +29,30 @@ public class PanneauControle extends TilePane implements Observateur {
 
         this.getChildren().addAll(b_prev, b_next, b_add, b_remove, title, pages);
         this.album.ajoutObservateur(this);
+    }
+
+    public void previous() {
+        this.album.currentPages-=2;
+        this.album.notifierObservateurs();
+    }
+
+    public void next() {
+        this.album.currentPages+=2;
+        this.album.notifierObservateurs();
+    }
+
+    public void ajouter() {
+        String name = "Shinchan2";
+        String path = "projet/album/蜡笔小新 yeah.jpg";
+        this.album.photos.add(new Photo(name, path));
+        this.album.size++;
+        this.album.notifierObservateurs();
+    }
+
+    public void retirer() {
+        this.album.photos.remove(0);
+        this.album.size--;
+        this.album.notifierObservateurs();
     }
 
     @Override
