@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.AmbientLight;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -26,12 +27,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("InterfaceMain.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1400, 800);
+//            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("interfaceMain.fxml"));
+//            Scene scene = new Scene(fxmlLoader.load(), 1400, 800);
             primaryStage.setTitle("Album");
 
         BorderPane root = new BorderPane();
-//        Scene scene = new Scene(root, 1400, 800);
+        Scene scene = new Scene(root, 1400, 800);
             primaryStage.setScene(scene);
 
         Album album = new Album("Shinchan");
@@ -40,8 +41,13 @@ public class Main extends Application {
 
         root.setTop(new MenuBar());
         root.setBottom(new PanneauControle(album));
-        root.setRight(new VuePhotos());
+        root.setRight(new VuePhotos(album));
         root.setCenter(new VueAlbum(album));
+
+//        root.setTop(new MenuBar());
+//        root.setBottom(new PanneauControle(album));
+//        root.setRight(new VuePhotos());
+//        root.setCenter(new VueAlbum(album));
 
             primaryStage.show();
     }

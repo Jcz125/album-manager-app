@@ -129,8 +129,8 @@
                                                    <children>
                                                       <HBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <children>
-                                                            <Button fx:id="b_prev" mnemonicParsing="false" onAction="#previous" text="&lt;" />
-                                                            <Button fx:id="b_next" mnemonicParsing="false" onAction="#next" text="&gt;" />
+                                                            <Button fx:id="b_prev" mnemonicParsing="false" text="&lt;" />
+                                                            <Button fx:id="b_next" mnemonicParsing="false" text="&gt;" />
                                                          </children>
                                                       </HBox>
                                                    </children>
@@ -142,8 +142,8 @@
                                                             <Insets />
                                                          </opaqueInsets>
                                                          <children>
-                                                            <Button fx:id="b_add" mnemonicParsing="false" onAction="#ajouter" text="+" />
-                                                            <Button fx:id="b_remove" mnemonicParsing="false" onAction="#retirer" text="-" />
+                                                            <Button fx:id="b_add" mnemonicParsing="false" text="+" />
+                                                            <Button fx:id="b_remove" mnemonicParsing="false" text="-" />
                                                          </children>
                                                       </HBox>
                                                    </children>
