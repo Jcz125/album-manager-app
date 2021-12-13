@@ -3,71 +3,88 @@ package projet.album.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import projet.album.model.Album;
 import projet.album.model.Photo;
 
-public class AlbumController extends GridPane implements Observateur {
+public class AlbumController extends GridPane implements Observateur, Controller {
 
+    @FXML
     public Label num1, num2;
+    @FXML
     public Button b1, b2;
+    @FXML
+    public ImageView image1Vue, image2Vue;
     public Photo photo1, photo2;
     public Album album;
-    public ImageView image1View, image2View;
 
-    public AlbumController(Album album) {
+    public AlbumController() {
+
+    }
+
+    public void cree(Album album) {
         this.album = album;
         this.album.ajoutObservateur(this);
+    }
 
-        this.photo1 = album.findPhoto(album.getCurrentPages());
-        this.photo2 = album.findPhoto(album.getCurrentPages()+1);
+    @FXML
+    public void renommerPhoto1()
+    {
+        TextInputDialog dialogText = new TextInputDialog("Titre d'image");
+        dialogText.setHeaderText("Donnez un titre");
+        dialogText.setContentText("Mettez un titre :");
 
-        this.num1 = new Label("" + photo1.getTitle());
-        this.num2 = new Label("" + photo2.getTitle());
+        dialogText.showAndWait().ifPresent(nom -> {
+            if (!nom.isEmpty()) {
+                album.renommerPhoto(0, nom);
+            }
+        });
+    }
 
-        Image image1 = new Image(photo1.getPath()); // "projet/album/shinchan_fond_boggle.jpg");
-        Image image2 = new Image(photo2.getPath()); //"projet/album/蜡笔小新 yeah.jpg");
-
-        image1View = new ImageView(image1);
-        image2View = new ImageView(image2);
-        image1View.setFitHeight(300);
-        image1View.setFitWidth(300);
-        image1View.preserveRatioProperty();
-        image2View.setFitHeight(300);
-        image2View.setFitWidth(300);
-        image2View.preserveRatioProperty();
-
-        this.b1 = new Button("Modifier");
-        this.b2 = new Button("Modifier");
-
-        String title1 = "New title 1";
-        String title2 = "New title 2";
-
-        this.b1.setOnAction(event->photo1.setTitle(title1));
-        this.b2.setOnAction(event->photo2.setTitle(title2));
-
-        this.add(num1, 0, 0);
-        this.add(num2, 1, 0);
-        this.add(b1, 0, 1);
-        this.add(b2, 1, 1);
-        this.add(image1View, 0, 2);
-        this.add(image2View, 1, 2);
-
-        this.album.ajoutObservateur(this);
+    @FXML
+    public void renommerPhoto2()
+    {
+        TextInputDialog dialogText = new TextInputDialog("Titre d'image");
+        dialogText.setHeaderText("Donnez un titre");
+        dialogText.setContentText("Mettez un titre :");
+        dialogText.showAndWait().ifPresent(nom -> {
+            if (!nom.isEmpty()) {
+                album.renommerPhoto(1, nom);
+            }
+        });
     }
 
     @Override
     public void reagir() {
         int current = this.album.getCurrentPages();
-        this.photo1 = new Photo(album.findPhotoTitle(current), album.findPhotoPath(current));
-        this.photo2 = new Photo(album.findPhotoTitle(current+1), album.findPhotoPath(current+1));
+        this.photo1 = null;
+        this.photo2 = null;
 
-        this.num1.setText("" + photo1.getTitle());
-        this.num2.setText("" + photo2.getTitle());
+        if (album.findPhotoPath(current) != null) {
+            this.photo1 = new Photo(album.findPhotoTitle(current), album.findPhotoPath(current));
+        }
 
-        this.image1View.setImage(new Image(photo1.getPath()));
-        this.image2View.setImage(new Image(photo2.getPath()));
+        if (album.findPhotoPath(current+1) != null) {
+            this.photo2 = new Photo(album.findPhotoTitle(current+1), album.findPhotoPath(current+1));
+        }
+
+        if (photo1 != null) {
+            this.image1Vue.setImage(new Image(photo1.getPath()));
+            this.num1.setText("" + photo1.getTitle());
+        } else {
+            this.image1Vue.setImage(null);
+            this.num1.setText("None");
+        }
+
+        if (photo2 != null) {
+            this.image2Vue.setImage(new Image(photo2.getPath()));
+            this.num2.setText("" + photo2.getTitle());
+        } else {
+            this.image2Vue.setImage(null);
+            this.num2.setText("None");
+        }
     }
 }

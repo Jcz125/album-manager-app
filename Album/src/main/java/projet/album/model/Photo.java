@@ -1,8 +1,8 @@
 package projet.album.model;
 
-import java.net.URL;
+import java.io.Serializable;
 
-public class Photo {
+public class Photo implements Serializable {
     protected String title;
     protected String path;
 
