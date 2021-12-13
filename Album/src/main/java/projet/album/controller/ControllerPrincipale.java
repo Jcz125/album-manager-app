@@ -46,7 +46,7 @@ public class ControllerPrincipale implements Observateur, Controller {
     @FXML
     public void clickSaveAlbum() {
         FileChooser fc = new FileChooser();
-        fc.setTitle("Sauvegarder "+album.getName()+"");
+        fc.setTitle("Sauvegarder " + album.getName() + "");
         FileChooser.ExtensionFilter ef = new FileChooser.ExtensionFilter("Album (*.album)", "*.album");
         fc.getExtensionFilters().add(ef);
         File fichier = fc.showSaveDialog(new Stage());
@@ -56,7 +56,7 @@ public class ControllerPrincipale implements Observateur, Controller {
                 ObjectOutputStream ostream = new ObjectOutputStream(fstream);
                 ostream.writeObject(album);
                 ostream.close();
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -74,13 +74,13 @@ public class ControllerPrincipale implements Observateur, Controller {
             try {
                 FileInputStream fichierEntree = new FileInputStream(fichier.getPath());
                 ObjectInputStream istream = new ObjectInputStream(fichierEntree);
-                album = (Album)istream.readObject();
+                album = (Album) istream.readObject();
                 album.alloueObs();
                 this.cree(album);
                 album.notifierObservateurs();
                 istream.close();
                 fichierEntree.close();
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -106,7 +106,8 @@ public class ControllerPrincipale implements Observateur, Controller {
 
     @Override
     public void cree(Album alb) {
-            this.album = alb;setAlbumPourControlleur();
+        this.album = alb;
+        setAlbumPourControlleur();
     }
 
     public void setAlbumPourControlleur() {

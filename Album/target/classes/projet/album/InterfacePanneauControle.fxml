@@ -15,48 +15,55 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="projet.album.controller.PanneauController" fx:id="i_panneau" spacing="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="projet.album.controller.PanneauController" fx:id="i_panneau" spacing="25.0"
+      AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
     <children>
         <AnchorPane>
             <children>
-                <HBox alignment="BASELINE_CENTER" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                <HBox alignment="BASELINE_CENTER" spacing="100.0" AnchorPane.leftAnchor="0.0"
+                      AnchorPane.rightAnchor="0.0">
                     <children>
-                        <Label fx:id="title" text="Nom d'album : " />
+                        <Label fx:id="title" text="Nom d'album : "/>
                         <Label fx:id="pages" text="Page : ">
                             <HBox.margin>
-                                <Insets />
+                                <Insets/>
                             </HBox.margin>
                         </Label>
                     </children>
                     <opaqueInsets>
-                        <Insets />
+                        <Insets/>
                     </opaqueInsets>
                 </HBox>
             </children>
         </AnchorPane>
         <AnchorPane>
             <children>
-                <HBox alignment="BASELINE_CENTER" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                <HBox alignment="BASELINE_CENTER" spacing="100.0" AnchorPane.leftAnchor="0.0"
+                      AnchorPane.rightAnchor="0.0">
                     <children>
                         <AnchorPane>
                             <children>
-                                <HBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <HBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                      AnchorPane.topAnchor="0.0">
                                     <children>
-                                        <Button fx:id="b_prev" mnemonicParsing="false" onAction="#previous" text="&lt;" />
-                                        <Button fx:id="b_next" mnemonicParsing="false" onAction="#next" text="&gt;" />
+                                        <Button fx:id="b_prev" mnemonicParsing="false" onAction="#previous"
+                                                text="&lt;"/>
+                                        <Button fx:id="b_next" mnemonicParsing="false" onAction="#next" text="&gt;"/>
                                     </children>
                                 </HBox>
                             </children>
                         </AnchorPane>
                         <AnchorPane>
                             <children>
-                                <HBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <HBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                      AnchorPane.topAnchor="0.0">
                                     <opaqueInsets>
-                                        <Insets />
+                                        <Insets/>
                                     </opaqueInsets>
                                     <children>
-                                        <Button fx:id="b_add" mnemonicParsing="false" onAction="#ajouter" text="+" />
-                                        <Button fx:id="b_remove" mnemonicParsing="false" text="-" />
+                                        <Button fx:id="b_add" mnemonicParsing="false" onAction="#ajouter" text="+"/>
+                                        <Button fx:id="b_remove" mnemonicParsing="false" text="-"/>
                                     </children>
                                 </HBox>
                             </children>
@@ -67,6 +74,6 @@
         </AnchorPane>
     </children>
     <padding>
-        <Insets top="25.0" />
+        <Insets top="25.0"/>
     </padding>
 </VBox>

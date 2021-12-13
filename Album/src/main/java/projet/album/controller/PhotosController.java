@@ -29,9 +29,11 @@ public class PhotosController extends ScrollPane implements Observateur, Control
     public PhotosController() {
 
     }
+
     public void cree(Album album) {
         this.album = album;
     }
+
     @FXML
     public void clickAjouterPhoto() throws IOException {
         DirectoryChooser fenDossier = new DirectoryChooser();
@@ -73,6 +75,7 @@ public class PhotosController extends ScrollPane implements Observateur, Control
             }
         }
     }
+
     @Override
     public void reagir() {
 

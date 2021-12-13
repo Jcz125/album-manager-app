@@ -16,7 +16,7 @@ public class Album implements Serializable {
     public ArrayList<Photo> photos;
     public transient ArrayList<Observateur> obs;
 
-    public Album (String name) {
+    public Album(String name) {
         this.name = name;
         this.size = 0;
         this.currentPages = 0;
@@ -24,13 +24,11 @@ public class Album implements Serializable {
         obs = new ArrayList<>();
     }
 
-    public void alloueObs()
-    {
+    public void alloueObs() {
         obs = new ArrayList<>();
     }
 
-    public void ajouterPhoto(String nom, String chemin)
-    {
+    public void ajouterPhoto(String nom, String chemin) {
         this.getPhotos().add(new Photo(nom, chemin));
         this.notifierObservateurs();
     }
@@ -67,8 +65,8 @@ public class Album implements Serializable {
     }
 
     public void next() {
-        if (this.currentPages < this.photos.size()-1)
-            this.currentPages+=2;
+        if (this.currentPages < this.photos.size() - 1)
+            this.currentPages += 2;
         this.notifierObservateurs();
     }
 

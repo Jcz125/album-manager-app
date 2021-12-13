@@ -31,8 +31,7 @@ public class AlbumController extends GridPane implements Observateur, Controller
     }
 
     @FXML
-    public void renommerPhoto1()
-    {
+    public void renommerPhoto1() {
         TextInputDialog dialogText = new TextInputDialog("Titre d'image");
         dialogText.setHeaderText("Donnez un titre");
         dialogText.setContentText("Mettez un titre :");
@@ -45,8 +44,7 @@ public class AlbumController extends GridPane implements Observateur, Controller
     }
 
     @FXML
-    public void renommerPhoto2()
-    {
+    public void renommerPhoto2() {
         TextInputDialog dialogText = new TextInputDialog("Titre d'image");
         dialogText.setHeaderText("Donnez un titre");
         dialogText.setContentText("Mettez un titre :");
@@ -67,8 +65,8 @@ public class AlbumController extends GridPane implements Observateur, Controller
             this.photo1 = new Photo(album.findPhotoTitle(current), album.findPhotoPath(current));
         }
 
-        if (album.findPhotoPath(current+1) != null) {
-            this.photo2 = new Photo(album.findPhotoTitle(current+1), album.findPhotoPath(current+1));
+        if (album.findPhotoPath(current + 1) != null) {
+            this.photo2 = new Photo(album.findPhotoTitle(current + 1), album.findPhotoPath(current + 1));
         }
 
         if (photo1 != null) {

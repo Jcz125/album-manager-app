@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: projet.album.Main
+Class-Path: projet.album
+

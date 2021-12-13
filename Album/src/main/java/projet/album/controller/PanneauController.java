@@ -22,20 +22,20 @@ public class PanneauController extends TilePane implements Observateur, Controll
 
     public void cree(Album album) {
         this.album = album;
-        this.b_prev.setOnAction(event->album.previous());
-        this.b_next.setOnAction(event-> album.next());
-        this.b_add.setOnAction(event->album.ajouter());
-        this.b_remove.setOnAction(event->album.retirer(album.getCurrentPages()));
+        this.b_prev.setOnAction(event -> album.previous());
+        this.b_next.setOnAction(event -> album.next());
+        this.b_add.setOnAction(event -> album.ajouter());
+        this.b_remove.setOnAction(event -> album.retirer(album.getCurrentPages()));
         this.album.ajoutObservateur(this);
     }
 
     public void previous() {
-        this.album.currentPages-=2;
+        this.album.currentPages -= 2;
         this.album.notifierObservateurs();
     }
 
     public void next() {
-        this.album.currentPages+=2;
+        this.album.currentPages += 2;
         this.album.notifierObservateurs();
     }
 
@@ -65,7 +65,7 @@ public class PanneauController extends TilePane implements Observateur, Controll
     @Override
     public void reagir() {
         this.title.setText("Album : " + album.getName());
-        this.pages.setText("Pages : " + (album.getCurrentPages()+1) + "-" + (album.getCurrentPages()+2)
+        this.pages.setText("Pages : " + (album.getCurrentPages() + 1) + "-" + (album.getCurrentPages() + 2)
                 + " sur " + album.getSize());
     }
 }
